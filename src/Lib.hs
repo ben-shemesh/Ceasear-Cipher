@@ -1,15 +1,5 @@
 module Lib where
 
-isLowerCase :: Char -> Bool
-isLowerCase char = char `elem` lowerCaseAlphabet
-
-isUpper :: Char -> Bool
-isUpper char = char `elem` upperCaseAlphabet
-
-isDigit :: Int -> Bool
-isDigit digi = digi `elem` digits
-
-
 type Alphabet = [Char] 
 lowerCaseAlphabet :: Alphabet
 lowerCaseAlphabet = ['a'.. 'z']
@@ -19,3 +9,15 @@ upperCaseAlphabet = ['A' .. 'Z']
 
 digits :: Alphabet
 digits = ['0' .. '9']
+
+isLowerCase :: Char -> Bool
+isLowerCase char = char `elem` lowerCaseAlphabet
+
+isUpperCase :: Char -> Bool
+isUpperCase char = char `elem` upperCaseAlphabet
+
+isDigit :: Char -> Bool
+isDigit char = char `elem` digits
+
+isMisc :: Char -> Bool
+isMisc char = char `notElem` lowerCaseAlphabet ++ upperCaseAlphabet ++ digits
