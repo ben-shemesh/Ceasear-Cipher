@@ -43,3 +43,15 @@ indexOf ch [] = undefined
     -- of the lsit that added recursively
     -- finds the index of the char
 indexOf ch (x : xs) = if x == ch then 0 else 1 + indexOf ch xs
+
+-- a function definition that takes two parameters and Int and a Char and evaluates to a Char
+upperRotation :: Int -> Char -> Char
+    -- an implemetaion of the function that uses the (!!) to find the element position
+    -- of a particular element in a list, in this case the (upperCaseAlphabet)
+    -- it then uses the indeOf function that takes two params a Char and a list (Alphabet)
+    -- the evaluated result of indexOf is then added to the number of the rotation (n)
+    -- mod is used as the number of letters of the english alphabet to determine the new Char
+upperRotation n ch = upperCaseAlphabet !! ((indexOf ch upperCaseAlphabet + n) `mod` 26)
+-- same as above but with lowerCase
+lowerRotaion :: Int -> Char -> Char
+lowerRotaion n ch = lowerCaseAlphabet !! ((indexOf ch lowerCaseAlphabet + n) `mod` 26)
