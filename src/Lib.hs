@@ -1,4 +1,7 @@
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
+{-# HLINT ignore "Eta reduce" #-}
 module Lib where
+import Data.Char
 -- created a custome type names Alphabet that is of Char list type
 type Alphabet = [Char] 
 
@@ -60,4 +63,16 @@ upperRotation :: Int -- takes a number as an argument, representing the off set
 upperRotation n ch = alphabetRot upperCaseAlphabet n ch
 -- same as above but with lowerCase
 lowerRotaion :: Int -> Char -> Char
-lowerRotaion n ch = alphabetRot lowerCaseAlphabet n ch
+lowerRotaion n ch =  alphabetRot lowerCaseAlphabet n ch
+
+-- [ƒ] using helper functions to determine case distinctions 
+rotationChar :: Int -> Char -> Char
+rotationChar n ch
+    -- isLower is part of the Data Lib
+    -- uses boolean to determine if the char is lowercase in Unicode
+    -- if true executes lowerRotaion function
+    | isLower ch = lowerRotaion n ch
+    --  same functionality
+    | isUpper ch = upperRotation n ch
+    -- self explanitory
+    | otherwise = ch
