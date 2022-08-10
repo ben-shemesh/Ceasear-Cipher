@@ -76,3 +76,14 @@ rotationChar n ch
     | isUpper ch = upperRotation n ch
     -- self explanitory
     | otherwise = ch
+
+ceaser :: Int -> String -> String
+-- map applies a function (rotationChar) to each element of the String /[a List]
+    -- each character (ch) is used in the mapping function ( -> rotationChar n ch)
+        -- untill the map has exasted each character (ch) in the string [recursive ƒ]
+        -- then producing a new string (message)
+ceaser n message = map (\ch -> rotationChar n ch) message
+
+rot13 :: String -> String
+-- Performs ROT13 encryption by using the Caesars cipher with a fixed offset of 13
+rot13 message = ceaser 13 message
