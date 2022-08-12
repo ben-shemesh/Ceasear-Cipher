@@ -76,7 +76,7 @@ rotationChar n ch
     | isUpper ch = upperRotation n ch
     -- self explanitory
     | otherwise = ch
-
+    
 ceaser :: Int -> String -> String
 -- map applies a function (rotationChar) to each element of the String /[a List]
     -- each character (ch) is used in the mapping function ( -> rotationChar n ch)
